@@ -1,0 +1,134 @@
+.stage-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #eeeae4;
+  backdrop-filter: blur(14px);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1320px;
+  min-height: 82px;
+  margin: auto;
+  padding: 0 5%;
+}
+
+.stage-brand {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  color: #17213a;
+  font-family: "Manrope", sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.stage-brand > span {
+  color: #d8894b;
+}
+
+.stage-brand small {
+  margin-top: 7px;
+  color: #8a8d98;
+  font-family: "DM Sans", sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 11px 13px;
+  border-radius: 9px;
+  color: #656b79;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #17213a;
+  background: #f7f3ed;
+}
+
+.nav-link.active {
+  color: #17213a;
+  background: #f8ead9;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  flex-shrink: 0;
+}
+
+.nav-login {
+  color: #353b4b;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-join {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 17px;
+  border-radius: 9px;
+  background: #17213a;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-join span {
+  color: #f3b477;
+}
+
+@media (max-width: 950px) {
+  .navbar-inner {
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-inner {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .navbar-actions {
+    gap: 12px;
+  }
+
+  .nav-link {
+    padding: 10px;
+    font-size: 12px;
+  }
+}

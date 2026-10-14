@@ -1,13 +1,36 @@
-const API_URL = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/students`;
+
+const API_URL = `${
+  import.meta.env.VITE_API_URL || "http://localhost:8080"
+}/students`;
+
+async function readResponse(response) {
+  const text = await response.text();
+
+  let data = null;
+
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch {
+    data = text;
+  }
+
+  if (!response.ok) {
+    const message =
+      typeof data === "object" && data !== null
+        ? data.message || data.error
+        : data;
+
+    throw new Error(
+      message || `Request failed with status ${response.status}`
+    );
+  }
+
+  return data;
+}
 
 export async function getStudents() {
   const response = await fetch(API_URL);
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch students");
-  }
-
-  return response.json();
+  return readResponse(response);
 }
 
 export async function registerStudent(student) {
@@ -19,11 +42,7 @@ export async function registerStudent(student) {
     body: JSON.stringify(student),
   });
 
-  if (!response.ok) {
-    throw new Error("Registration failed");
-  }
-
-  return response.json();
+  return readResponse(response);
 }
 
 export async function loginStudent(credentials) {
@@ -35,17 +54,9 @@ export async function loginStudent(credentials) {
     body: JSON.stringify(credentials),
   });
 
-  if (!response.ok) {
-    if (response.status === 401) {
-      throw new Error("Incorrect email or password.");
-    }
-
-    if (response.status === 404) {
-      throw new Error("Login endpoint not found. Check the backend.");
-    }
-
-    throw new Error("Login failed. Please check that the backend is running.");
+  if (response.status === 401) {
+    throw new Error("Incorrect email or password.");
   }
 
-  return response.json();
+  return readResponse(response);
 }

@@ -1,0 +1,439 @@
+
+/* ========================================
+   STAGE — EVENTS PAGE
+   Premium campus event discovery
+======================================== */
+
+.events-page {
+  min-height: 100vh;
+  padding: 0 6%;
+  background: #f7f6f1;
+  color: #252b24;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* HERO */
+
+.events-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+  padding: 75px 0 55px;
+}
+
+.events-hero-content {
+  flex: 1;
+  max-width: 650px;
+}
+
+.events-eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #a86140;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.events-hero h1 {
+  margin: 0;
+  color: #252b24;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 500;
+  letter-spacing: -3px;
+  line-height: 1.05;
+}
+
+.events-hero h1 span {
+  color: #a86140;
+  font-style: italic;
+}
+
+.events-hero p {
+  max-width: 470px;
+  margin: 24px 0 0;
+  color: #77796f;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.events-hero-image {
+  width: 39%;
+  min-height: 300px;
+  border-radius: 160px 160px 12px 12px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(30, 39, 30, 0.02),
+      rgba(30, 39, 30, 0.2)
+    ),
+    url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=85")
+      center / cover no-repeat;
+  box-shadow: 0 18px 45px rgba(37, 43, 36, 0.1);
+}
+
+/* SEARCH */
+
+.events-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin: 8px 0 48px;
+  padding: 15px;
+  border: 1px solid #e7e5dc;
+  border-radius: 12px;
+  background: #fffefa;
+  box-shadow: 0 8px 30px rgba(37, 43, 36, 0.035);
+}
+
+.events-search,
+.events-toolbar input,
+.events-search input {
+  flex: 1;
+  min-width: 210px;
+  padding: 13px 16px;
+  border: 1px solid #e5e3da;
+  border-radius: 7px;
+  outline: none;
+  background: #f8f7f2;
+  color: #252b24;
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.events-toolbar input:focus,
+.events-search input:focus {
+  border-color: #62745c;
+  box-shadow: 0 0 0 3px rgba(98, 116, 92, 0.12);
+}
+
+.events-toolbar input::placeholder,
+.events-search input::placeholder {
+  color: #99998f;
+}
+
+/* CATEGORY FILTERS */
+
+.events-categories,
+.event-filters,
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 36px;
+}
+
+.events-categories button,
+.event-filters button,
+.category-filters button {
+  padding: 10px 17px;
+  border: 1px solid #e4e2d8;
+  border-radius: 100px;
+  background: transparent;
+  color: #686b61;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.events-categories button:hover,
+.event-filters button:hover,
+.category-filters button:hover {
+  border-color: #252b24;
+  color: #252b24;
+  transform: translateY(-1px);
+}
+
+.events-categories button.active,
+.event-filters button.active,
+.category-filters button.active,
+.events-categories button[aria-pressed="true"],
+.event-filters button[aria-pressed="true"],
+.category-filters button[aria-pressed="true"] {
+  border-color: #252b24;
+  background: #252b24;
+  color: #fffefa;
+}
+
+/* SECTION HEADING */
+
+.events-section {
+  padding-bottom: 80px;
+}
+
+.events-section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.events-section-header h2,
+.events-section h2 {
+  margin: 0;
+  color: #252b24;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.events-section-header p {
+  margin: 10px 0 0;
+  color: #85867c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* EVENT GRID */
+
+.events-grid,
+.events-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* EVENT CARD */
+
+.event-card {
+  overflow: hidden;
+  border: 1px solid #e9e7de;
+  border-radius: 12px;
+  background: #fffefa;
+  box-shadow: 0 5px 20px rgba(37, 43, 36, 0.035);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  border-color: #d7d5c9;
+  box-shadow: 0 18px 38px rgba(37, 43, 36, 0.1);
+}
+
+/* EVENT IMAGE */
+
+.event-image,
+.event-card-image {
+  position: relative;
+  overflow: hidden;
+  height: 225px;
+  background: #e8e6dc;
+}
+
+.event-image img,
+.event-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-image img,
+.event-card:hover .event-card-image img {
+  transform: scale(1.045);
+}
+
+/* EVENT CATEGORY */
+
+.event-category {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 7px 11px;
+  border-radius: 4px;
+  background: #eeece2;
+  color: #5c6653;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* EVENT CONTENT */
+
+.event-content,
+.event-card-content {
+  padding: 22px;
+}
+
+.event-date {
+  margin-bottom: 12px;
+  color: #a86140;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.event-card h3,
+.event-title {
+  margin: 0 0 12px;
+  color: #252b24;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.event-card p {
+  color: #77796f;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 17px;
+  border-top: 1px solid #eeece4;
+  color: #77796f;
+  font-size: 12px;
+}
+
+.event-details span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+/* REGISTRATION BUTTON */
+
+.event-registration {
+  margin-top: 20px;
+}
+
+.event-register-button,
+.event-registration button,
+.event-card a.event-register-button {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid #252b24;
+  border-radius: 6px;
+  background: #252b24;
+  color: #fffefa;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.event-register-button:hover,
+.event-registration button:hover {
+  border-color: #a86140;
+  background: #a86140;
+  color: #fff;
+}
+
+.event-register-button span {
+  font-size: 17px;
+}
+
+/* EMPTY / LOADING STATES */
+
+.events-empty,
+.no-events,
+.events-loading {
+  padding: 60px 20px;
+  border: 1px dashed #dcd9ce;
+  border-radius: 12px;
+  color: #77796f;
+  text-align: center;
+}
+
+.events-empty h3,
+.no-events h3 {
+  color: #252b24;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .events-page {
+    padding-right: 4%;
+    padding-left: 4%;
+  }
+
+  .events-grid,
+  .events-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .events-hero {
+    gap: 28px;
+  }
+
+  .events-hero-image {
+    width: 36%;
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 650px) {
+  .events-hero {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 48px;
+  }
+
+  .events-hero h1 {
+    font-size: 47px;
+    letter-spacing: -2px;
+  }
+
+  .events-hero-image {
+    width: 100%;
+    min-height: 230px;
+    border-radius: 12px;
+  }
+
+  .events-toolbar {
+    align-items: stretch;
+    margin-bottom: 35px;
+  }
+
+  .events-grid,
+  .events-list {
+    grid-template-columns: 1fr;
+  }
+
+  .event-image,
+  .event-card-image {
+    height: 235px;
+  }
+
+  .events-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .events-categories,
+  .event-filters,
+  .category-filters {
+    gap: 8px;
+  }
+}
